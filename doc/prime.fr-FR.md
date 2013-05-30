@@ -119,8 +119,8 @@ MyPrime.implement(methods)
 
 ### paramètres
 
-1. methods - (*object*) Un objet avec des clés qui représentent des noms de prototype et
-leurs valeurs qui en représentent les méthodes.
+1. methods - (*object*) Un objet avec des clés:valeurs qui représentent des noms de prototype et
+leurs méthodes.
 
 ### échantillon
 
