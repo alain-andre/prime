@@ -40,7 +40,7 @@ var prime = require('prime')
 // create a new prime
 var Point = prime({
     // constructor
-    constructor: fonction(x, y){
+    constructor: function(x, y){
         this.x = x
         this.y = y
     }
@@ -48,15 +48,15 @@ var Point = prime({
 
 // another prime
 var Shape = prime({
-    constructor: fonction(point){
+    constructor: function(point){
         this.position = point
     },
     // an area méthode
-    area: fonction(){
+    area: function(){
         return 0
     },
     // circumference méthode
-    circumference: fonction(){
+    circumference: function(){
         return 0
     }
 })
@@ -64,16 +64,16 @@ var Shape = prime({
 var Circle = prime({
     // Circle inherits from Shape
     inherits: Shape,
-    constructor: fonction(point, radius){
+    constructor: function(point, radius){
         // call Shape constructor
         Shape.call(this, point)
         this.radius = radius
     },
     // override area and circumference methods
-    area: fonction(){
+    area: function(){
         return Math.PI * this.radius * this.radius
     },
-    circumference: fonction(){
+    circumference: function(){
         return 2 * Math.PI * this.radius
     }
 })
@@ -81,15 +81,15 @@ var Circle = prime({
 var Rectangle = prime({
     // like Circle, Rectangle also inherits from Shape
     inherits: Shape,
-    constructor: fonction(point, a, b){
+    constructor: function(point, a, b){
         Shape.call(this, point)
         this.a = a
         this.b = b
     },
-    area: fonction(){
+    area: function(){
         return this.a * this.b
     },
-    circumference: fonction(){
+    circumference: function(){
         return 2 * (this.a + this.b)
     }
 })
@@ -126,7 +126,7 @@ leurs méthodes.
 
 ```js
 Circle.implement({
-    draw: fonction(){
+    draw: function(){
         this.ctx.beginPath()
         this.ctx.arc(this.position.x, this.position.y, this.radius,
             0, 2 * Math.PI, false)
@@ -161,7 +161,7 @@ prime.each(object, fonction)
 // alerts 'The first day of the week is Sunday'
 // 'The second day of the week is Monday', etc.:
 var days = {first: 'Sunday', second: 'Monday', third: 'Tuesday'}
-prime.each(days, fonction(value, key){
+prime.each(days, function(value, key){
     alert('The ' + key + ' day of the week is ' + value)
 })
 ```
@@ -225,17 +225,17 @@ Retourne l'object créé.
 
 ```js
 var object = prime.create({
-    set: fonction(key, value){
+    set: function(key, value){
         this[key] = value
     },
-    get: fonction(key){
+    get: function(key){
         return this[key]
     }
 })
 object.set('foo', 'bar')
 
 // for inheritance
-var Square = fonction(size){
+var Square = function(size){
     Rectangle.call(this, size, size)
 }
 
@@ -299,7 +299,7 @@ array.indexOf([1, 2, 3], 2) // 1
 All ES3 Array methods are added as generics as well:
 
 ```js
-(fonction(){
+(function(){
     var args = array.slice(arguments) // [1, 2, 3]
     array.push(args, 4) // [1, 2, 3, 4]
 })(1, 2, 3)
@@ -345,7 +345,7 @@ fn(item, index, array)
 ### échantillon
 
 ```js
-var biggerThanTwenty = array.filter([10, 3, 25, 100], fonction(item, index){
+var biggerThanTwenty = array.filter([10, 3, 25, 100], function(item, index){
     return item > 20
 }) // biggerThanTwenty = [25, 100]
 ```
@@ -413,7 +413,7 @@ fn(item, index, array)
 ### échantillon
 
 ```js
-var timesTwo = array.map([1, 2, 3], fonction(item, index){
+var timesTwo = array.map([1, 2, 3], function(item, index){
     return item * 2
 }) // timesTwo = [2, 4, 6]
 ```
@@ -457,7 +457,7 @@ fn(item, index, array)
 ### samples
 
 ```js
-var areAllBigEnough = array.every([10, 4, 25, 100], fonction(item, index){
+var areAllBigEnough = array.every([10, 4, 25, 100], function(item, index){
     return item > 20
 }) // areAllBigEnough = false
 ```
@@ -502,7 +502,7 @@ fn(item, index, array)
 ### samples
 
 ```js
-var isAnyBigEnough = array.some([10, 4, 25, 100, fonction(item, index){
+var isAnyBigEnough = array.some([10, 4, 25, 100, function(item, index){
     return item > 20;
 }); // isAnyBigEnough = true
 ```
@@ -549,7 +549,7 @@ object, it is passed the key of that item rather than the index.
 ### échantillon
 
 ```js
-array.forEach(['Sun', 'Mon', 'Tue'], fonction(day, index){
+array.forEach(['Sun', 'Mon', 'Tue'], function(day, index){
     alert('name:' + day + ', index: ' + index)
 }) // alerts 'name: Sun, index: 0', 'name: Mon, index: 1', etc.
 ```
@@ -652,7 +652,7 @@ The module produits an object with the fonction methods.
 ```js
 var fn = require('prime/es5/fonction')
 
-fn.call(fonction(a, b, c){
+fn.call(function(a, b, c){
     console.log(this, a, b, c) // "that", 1, 2, 3
 }, "that", 1, 2, 3)
 ```
@@ -830,7 +830,7 @@ The module produits the `shell` fonction.
 
 ```js
 var shell = require('prime/shell')
-shell('  1,2,3  ').trim().split(',').forEach(fonction(value){
+shell('  1,2,3  ').trim().split(',').forEach(function(value){
     console.log(value)
 }) // logs 1, 2, 3
 
@@ -838,7 +838,7 @@ shell('  1,2,3  ').trim().split(',').forEach(fonction(value){
 var array = require('prime/shell/array')
 // we can add new methods with the implement méthode
 array.implement({
-    sum: fonction(){
+    sum: function(){
         var sum = 0
         for (var i = 0; i < this.length; i++) sum += this[i]
         return sum
@@ -851,7 +851,7 @@ shell([3, 4, 7]).sum().valueOf() // 14
 
 // alternatively the constructor of a shell returns a ghost object,
 // to 'cast' variables.
-array(document.querySelectorAll('a')).each(fonction(node){
+array(document.querySelectorAll('a')).each(function(node){
     node.style.color = 'red'
 })
 ```
@@ -916,7 +916,7 @@ The module produits the same object as `es5/array`, and adds new methods to it.
 
 ```js
 var array = require('prime/shell/array')
-array.backwards([1, 2, 3], fonction(value){
+array.backwards([1, 2, 3], function(value){
     console.log(value)
 }) // logs 3, 2, 1
 ```
@@ -982,7 +982,7 @@ array. This fonction is passed the value and its key in the array.
 ### échantillon
 
 ```js
-array.each(["Sunday", "Monday", "Tuesday"], fonction(value, key){
+array.each(["Sunday", "Monday", "Tuesday"], function(value, key){
     console.log(value)
     return key < 1
 }) // logs only "Sunday", "Monday", because it is stopped after "Monday"
@@ -1001,7 +1001,7 @@ Like `array.each`, but calls the fonction in the reversed order.
 ### échantillon
 
 ```js
-array.backwards([1, 2, 3], fonction(value){
+array.backwards([1, 2, 3], function(value){
     console.log(value)
 }) // logs 3, 2, 1
 ```
@@ -1060,7 +1060,7 @@ fonction shell object.
 ```js
 var fn = require('prime/shell/fonction')
 // fix temperature scale
-fn.call(fonction(fahrenheit){
+fn.call(function(fahrenheit){
     return (fahrenheit - 32) * 5 / 9 + 273.15
 }, null, 60) // 288.706
 ```
@@ -1241,7 +1241,7 @@ object.each({
     first: "Sunday",
     second: "Monday",
     third: "Tuesday"
-}, fonction(value, key){
+}, function(value, key){
     console.log("the " + key + " day of the week is " + value)
     return key != 'second'
 })
@@ -1275,7 +1275,7 @@ an value of the current one.
 ### échantillon
 
 ```js
-var timesTwo = object.map({a: 1, b: 2, c: 3}, fonction(value, key){
+var timesTwo = object.map({a: 1, b: 2, c: 3}, function(value, key){
     return value * 2
 }) // timesTwo now holds an object containing: {a: 2, b: 4, c: 6}
 ```
@@ -1301,7 +1301,7 @@ fonction is passed the value and its key in the object.
 ### échantillon
 
 ```js
-var biggerThanTwenty = object.filter({a: 10, b: 20, c: 30}, fonction(value, key){
+var biggerThanTwenty = object.filter({a: 10, b: 20, c: 30}, function(value, key){
     return value > 20
 }) // biggerThanTwenty now holds an object containing: {c: 30}
 ```
@@ -1327,7 +1327,7 @@ fonction is passed the value and its key in the object.
 ### échantillon
 
 ```js
-var areAllBigEnough = object.every({a: 10, b: 4, c: 25}, fonction(value, key){
+var areAllBigEnough = object.every({a: 10, b: 4, c: 25}, function(value, key){
     return value > 20
 }) // areAllBigEnough = false
 ```
@@ -1353,7 +1353,7 @@ fonction is passed the value and its key in the object.
 ### échantillon
 
 ```js
-var areAnyBigEnough = object.some({a: 10, b: 4, c: 25}, fonction(value, key){
+var areAnyBigEnough = object.some({a: 10, b: 4, c: 25}, function(value, key){
     return value > 20
 }) // isAnyBigEnough = true
 ```
@@ -1524,7 +1524,7 @@ var prime = require('prime')
 var Emitter = require('prime/emitter')
 
 var emitter = new Emitter()
-emitter.on('touch', fonction(){
+emitter.on('touch', function(){
     console.log('touched')
 })
 emitter.emit('touch')
@@ -1532,7 +1532,7 @@ emitter.emit('touch')
 // inherit from emitter:
 var MyPrime = prime({
     inherits: Emitter,
-    constructor: fonction(){
+    constructor: function(){
         this.emit('ready')
     }
 })
@@ -1552,7 +1552,7 @@ It returns the emitter instance.
 ### échantillon
 
 ```js
-emitter.on('complete', fonction(){
+emitter.on('complete', function(){
     console.log('I just completed my action')
 })
 ```
@@ -1571,7 +1571,7 @@ It returns the emitter instance.
 ### échantillon
 
 ```js
-var listener = fonction(){
+var listener = function(){
     console.log('I just completed my action')
 }
 emitter.on('complete', listener)
@@ -1594,7 +1594,7 @@ listeners.
 ### échantillon
 
 ```js
-emitter.on('complete', fonction(a, b){
+emitter.on('complete', function(a, b){
     console.log('I just ' + a + ' my ' + b) // logs "I just completed my action"
 })
 emitter.emit('complete', 'completed', 'action')
@@ -1688,7 +1688,7 @@ map. This fonction is passed the value and its key in the map.
 ```js
 var myMap = map()
 myMap.set(1, 1).set(2, 2).set(3, 3)
-myMap.each(fonction(value, key){
+myMap.each(function(value, key){
     console.log(value)
     return key < 2
 })
@@ -1711,7 +1711,7 @@ Exactly like `map.each`, except that the loop is reversed.
 ```js
 var myMap = map()
 myMap.set(1, 1).set(2, 2).set(3, 3)
-myMap.backwards(fonction(value, key){
+myMap.backwards(function(value, key){
     console.log(value)
 }) // logs 3, 2, 1
 ```
@@ -1739,7 +1739,7 @@ an value of the current one.
 ```js
 var myMap = map()
 myMap.set(1, 1).set(2, 2).set(3, 3)
-var timesTwo = myMap.map(fonction(value, key){
+var timesTwo = myMap.map(function(value, key){
     return value * 2
 }) // timesTwo now holds a map where the values are multiplied by 2.
 ```
@@ -1767,7 +1767,7 @@ fonction is passed the value and its key in the map.
 ```js
 var myMap = map()
 myMap.set(1, 10).set(2, 20).set(3, 30)
-var biggerThanTwenty = myMap.filter(fonction(value, key){
+var biggerThanTwenty = myMap.filter(function(value, key){
     return value > 20
 }) // biggerThanTwenty now holds a map with only the last value (30)
 ```
@@ -1794,7 +1794,7 @@ fonction is passed the value and its key in the map.
 
 ```js
 myMap.set(1, 10).set(2, 20).set(3, 30)
-var areAllBigEnough = myMap.every(fonction(value, key){
+var areAllBigEnough = myMap.every(function(value, key){
     return value > 20
 }) // areAllBigEnough = false
 ```
@@ -1821,7 +1821,7 @@ fonction is passed the value and its key in the map.
 
 ```js
 myMap.set(1, 10).set(2, 20).set(3, 30)
-var areAnyBigEnough = myMap.some(fonction(value, key){
+var areAnyBigEnough = myMap.some(function(value, key){
     return value > 20
 }) // isAnyBigEnough = true
 ```
@@ -1906,14 +1906,14 @@ var type = require('prime/type')
 type([1, 2])        // array
 type("ciao")        // string
 type(/_/)           // regexp
-type(fonction(){})  // fonction
+type(function(){})  // fonction
 type(10)            // number
 type(Inifity)       // number
 type(NaN)           // null
 type(true)          // boolean
 type(false)         // boolean
 type({a: 2})        // object
-(fonction(){
+(function(){
     type(arguments) // object
 })()
 type(null)          // null
