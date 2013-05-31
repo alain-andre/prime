@@ -281,22 +281,22 @@ console.log(object.number) // 1
 
 module: es5/array
 =================
-#TODO
-This module contains ECMAScript 5 array methods as generics.
-Native JavaScript methods will always get invoked where available,
-otherwise a compliant JavaScript substitute will be used.
+
+Ce module contient les méthodes ECMAScript 5 array de façon générique.
+Les méthodes natives de JavaScript seront toujours appellées si disponibles, 
+sinon un substitut JavaScript sera utilisé.
 
 produits
 -------
 
-The module produits an object containing all the array methods.
+Le module produit un objet contenant toutes les méthodes _array_.
 
 ```js
 var array = require('prime/es5/array')
 array.indexOf([1, 2, 3], 2) // 1
 ```
 
-All ES3 Array methods are added as generics as well:
+Toutes les méthodes ES3 Array sont aussi ajoutées de façon génériques :
 
 ```js
 (function(){
@@ -307,15 +307,15 @@ All ES3 Array methods are added as generics as well:
 
 ### note
 
-`array` is a [shell](#module-shell).
+`array` est un [shell](#module-shell).
 
 méthode: filter
 --------------
 
-Returns a new array with the elements of the original array for which the
-provided filtering fonction returns `true`.
+Retourne un nouvel _array_ avec les éléments de l'_array_ original pour 
+lequel la fonction de filtrage fourni retourne `true`.
 
-### syntax
+### syntaxe
 
 ```js
 var filteredArray = array.filter(myArray, fn[, context])
@@ -323,14 +323,14 @@ var filteredArray = array.filter(myArray, fn[, context])
 
 ### paramètres
 
-1. myArray - (*array*) The array to filter.
-1. fn - (*fonction*) The fonction to test each element of the array. This
-fonction is passed the item and its index in the array.
-2. context - (*object*, optional) The object to use as 'this' in the fonction.
+1. myArray - (*array*) L' _array_ à filtrer.
+1. fn - (*fonction*) La fonction pour tester chaque élément de l'_array_. 
+Cette fonction est passée avec l'élément et son index dans l'_array_.
+2. context - (*object*, optionnel) L'objet à utiliser tel que dans la fonction.
 
-#### parameter: fn
+#### paramètre: fn
 
-##### syntax
+##### syntaxe
 
 ```js
 fn(item, index, array)
@@ -338,9 +338,9 @@ fn(item, index, array)
 
 ##### arguments
 
-1. item   - (*mixed*) The current item in the array.
-2. index  - (*number*) The current item's index in the array.
-3. array  - (*array*) The actual array.
+1. item   - (*mixed*) L'élément en cours dans l'_array_.
+2. index  - (*number*) L'index de l'élément en cours dans l'_array_.
+3. array  - (*array*) L'_array_ actuel.
 
 ### échantillon
 
@@ -357,14 +357,13 @@ var biggerThanTwenty = array.filter([10, 3, 25, 100], function(item, index){
 méthode: indexOf
 ---------------
 
-Returns the index of the first element within the array equal to the specified
-value, or -1 if the value is not found.
+Retourne l'index du premier élément dans l'_array_ qui correspond à la valeur spécifiée,
+ou -1 si la valeur n'est pas trouvée.
 
 ### paramètres
 
-1. item - (*object*) The item to search for in the array.
-2. from - (*number*, optional: defaults to 0) The index of the array at which
-to begin the search.
+1. item - (*object*) L'élément à rechercher dans l'_array_.
+2. from - (*number*, optionnel: à 0 par défaut) L'index à partir duquel rechercher dans l'_array_.
 
 ### samples
 
@@ -380,10 +379,10 @@ array.indexOf(['apple', 'lemon'], 'banana'); // returns -1
 méthode: map
 -----------
 
-Creates and returns a new array with the results of calling a provided fonction
-on every element in the array.
+Crée et retourne un nouvel _array_ avec les résultats de l'appel à une fonction 
+fournie sur chaqun des éléments de l'_array_.
 
-### syntax
+### syntaxe
 
 ```js
 var mappedArray = array.map(myArray, fn[, context])
@@ -391,10 +390,9 @@ var mappedArray = array.map(myArray, fn[, context])
 
 ### paramètres
 
-1. myArray - (*array*) Original array to map.
-2. fn - (*fonction*) The fonction to produce an element of the new Array from
-an element of the current one.
-3. context - (*object*, optional) The object to use as 'this' in the fonction.
+1. myArray - (*array*) L'_array_ original à mapper.
+2. fn - (*fonction*) La fonction à appliquer sur l'élément de l'_array_ produisant le nouvel élément.
+3. context - (*object*, optionnel) L'objet à utiliser tel que dans la fonction.
 
 #### argument: fn
 
@@ -406,9 +404,9 @@ fn(item, index, array)
 
 ##### arguments
 
-1. item   - (*mixed*) The current item in the array.
-2. index  - (*number*) The current item's index in the array.
-3. array  - (*array*) The actual array.
+1. item   - (*mixed*) L'élement en cours dans l'_array_.
+2. index  - (*number*) L'index de l'élément n cours dans l'_array_.
+3. array  - (*array*) L'_array_ actuel.
 
 ### échantillon
 
@@ -425,17 +423,16 @@ var timesTwo = array.map([1, 2, 3], function(item, index){
 méthode: every
 -------------
 
-Returns true if every element in the array satisfies the provided testing
-fonction.
+Retourne `true` si chaque élément de l'_array_ satisfait la fonction de test fournie.
 
-### syntax
+### syntaxe
 
 ```js
 var allPassed = array.every(myArray, fn[, context])
 ```
 
 ### paramètres
-
+TODO
 1. myArray - (*array*) The array with the elements that should be checked.
 2. fn - (*fonction*) The fonction to test for each element.
 3. context - (*object*, optional) The object to use as 'this' in the fonction.
