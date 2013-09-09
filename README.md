@@ -1,4 +1,3 @@
-
 #prime |prīm|
 
 1. fundamental, basic, essential.
@@ -28,31 +27,21 @@ var Animal = prime({
     }
 })
 
+var Emitter = require("prime/emitter")
+
 var Cat = prime({
     inherits: Animal,
+    mixin: Emitter,
     say: function(){
         return "meaow" + Cat.parent.say.call(this)
     }
 })
 ```
-### prime/shell
 
-The base shell. As you require more shells, the base shell will be augmented.
-Requiring specific shells gives you access to generic methods as well.
-```js
-var array = require("prime/shell/array")
-
-array.indexOf([1,2,3], 3) // 3
-
-var _ = require("prime/shell")
-
-_([1,2,3]).remove(1).each(function(number){
-    console.log(number)
-})
-```
 ### prime/emitter
 
 The event emitter.
+
 ```js
 var Emitter = require("prime/emitter")
 
@@ -73,9 +62,11 @@ barkley.on("say", function(word){
     console.log("barkley barked", word)
 })
 ```
+
 ### prime/map
 
-Simple WeakMap implementation.
+Simple WeakMap-like object.
+
 ```js
 var Map = require("prime/map")
 
@@ -86,9 +77,11 @@ map.set(domElement2, "footer")
 map.get(domElement) // "header"
 map.get(domElement2) // "footer"
 ```
+
 ### prime/type
 
 Type checker.
+
 ```js
 var type = require("prime/type")
 
@@ -106,60 +99,123 @@ type(null) // "null"
 type(undefined) // "null"
 type(NaN) // "null"
 ```
-### prime/shell/array
 
-Array methods.
+### prime/shell
+
+Wraps every type in a special function containing every available method.
+Use valueOf() / toString() to get the bare value.
 
 ```js
-require("prime/shell/array")
+var _ = require("prime/shell")
+_([10, 20, 30]).indexOf(1).times(function(n){}).valueOf() // 10
+document.title = _(["hello-mootools"]).get(0).camelize()
 ```
 
-### prime/shell/object
+### prime/array
 
-Object methods.
+A composite module of all the methods modules.
+Available methods: every, filter, forEach, indexOf, map, remove, slice, some
 
 ```js
-require("prime/shell/object")
+var array = require("prime/array")
+array.indexOf([1,2,3], 1)
+array([1,2,3]).indexOf(1)
 ```
 
-### prime/shell/string
-
-String methods.
+Requiring individual methods as generics:
 
 ```js
-require("prime/shell/string")
+var indexOf = require("prime/array/indexOf")
+indexOf([1,2,3], 1)
 ```
 
-### prime/shell/number
+### prime/object
 
-Number methods.
+A composite module of all the methods modules.
+Available methods: count, create, every, filter, forIn, forOwn, indexOf, keys, map, mixIn, remove, some, values
 
 ```js
-require("prime/shell/number")
+var object = require("prime/object")
+object.count({a:1})
+object({a:1}).count()
 ```
 
-### prime/shell/function
-
-Function methods.
+Requiring individual methods as generics:
 
 ```js
-require("prime/shell/function")
+var count = require("prime/object/count")
+count({a:1})
 ```
 
-### prime/shell/regexp
+### prime/string
 
-Regexp methods.
+A composite module of all the methods modules.
+Available methods: camelize, capitalize, clean, escape, hyphenate, trim
 
 ```js
-require("prime/shell/regexp")
+var string = require("prime/string")
+string.trim("  asdfg  ")
+string("  asdfg  ").trim()
 ```
 
-### prime/shell/date
-
-Date methods.
+Requiring individual methods as generics:
 
 ```js
-require("prime/shell/date")
+var trim = require("prime/string/trim")
+trim(" asdfg ")
+```
+
+### prime/number
+
+A composite module of all the methods modules.
+Available methods: limit, random, round, times
+
+```js
+var fn = require("prime/number")
+number.times(10, function(n){})
+number(10).times(function(n){})
+```
+
+Requiring individual methods as generics:
+
+```js
+var times = require("prime/number/times")
+times(10, function(n){})
+```
+
+### prime/function
+
+A composite module of all the methods modules.
+Available methods: bind
+
+```js
+var fn = require("prime/function")
+fn.bind(function(){}, object)
+fn(function(){}).bind(object)
+```
+
+Requiring individual methods as generics:
+
+```js
+var bind = require("prime/function/bind")
+bind(function(){}, object)
+```
+
+### prime/date
+
+A composite module of all the methods modules.
+Available methods: now
+
+```js
+var date = require("prime/date")
+date.now()
+```
+
+Requiring individual methods as generics:
+
+```js
+var now = require("date/now")
+now()
 ```
 
 
