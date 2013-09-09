@@ -3,11 +3,13 @@ Emitter
 */"use strict"
 
 var prime = require("./index"),
-    slice = Array.prototype.slice
+    defer = require("./defer"),
+    uid   = require("./uid"),
+    slice = require("./array/slice")
 
 var EID = 0
 
-module.exports = prime({
+var Emitter = prime({
 
     on: function(event, fn){
         var listeners = this._listeners || (this._listeners = {}),
@@ -15,7 +17,7 @@ module.exports = prime({
 
         for (var k in events) if (events[k] === fn) return this
 
-        events[(EID++).toString(36)] = fn
+        events[uid()] = fn
         return this
     },
 
@@ -42,12 +44,34 @@ module.exports = prime({
     },
 
     emit: function(event){
-        var listeners = this._listeners, events
-        if (listeners && (events = listeners[event])){
-            var args = (arguments.length > 1) ? slice.call(arguments, 1) : []
-            for (var k in events) events[k].apply(this, args)
+        var self = this,
+            args = slice(arguments, 1)
+
+        var emit = function(){
+            var listeners = self._listeners, events
+            if (listeners && (events = listeners[event])){
+                var copy = {}, k
+                for (k in events) copy[k] = events[k]
+                for (k in copy) {
+                    var res = copy[k].apply(self, args)
+                    if (res === false) break;
+                }
+            }
+
         }
+
+        if (args[args.length - 1] === Emitter.EMIT_SYNC){
+            args.pop()
+            emit()
+        } else {
+            defer(emit)
+        }
+
         return this
     }
 
 })
+
+Emitter.EMIT_SYNC = {}
+
+module.exports = Emitter
