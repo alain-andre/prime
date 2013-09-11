@@ -289,7 +289,7 @@ sinon un substitut JavaScript sera utilisé.
 produits
 -------
 
-Le module produit un objet contenant toutes les méthodes _array_.
+Le module produit un objet contenant toutes les méthodes `array`.
 
 ```js
 var array = require('prime/es5/array')
@@ -312,7 +312,7 @@ Toutes les méthodes ES3 Array sont aussi ajoutées de façon génériques :
 Méthode: filter
 --------------
 
-Retourne un nouvel _array_ avec les éléments de l'_array_ original pour 
+Retourne un nouvel `array` avec les éléments de l'`array` original pour 
 lequel la fonction de filtrage fourni retourne `true`.
 
 ### Syntaxe
@@ -323,9 +323,9 @@ var filteredArray = array.filter(myArray, fn[, context])
 
 ### Paramètres
 
-1. myArray - (*array*) L' _array_ à filtrer.
-1. fn - (*fonction*) La fonction pour tester chaque élément de l'_array_. 
-Cette fonction est passée avec l'élément et son index dans l'_array_.
+1. myArray - (*array*) L' `array` à filtrer.
+1. fn - (*fonction*) La fonction pour tester chaque élément de l'`array`. 
+Cette fonction est passée avec l'élément et son index dans l'`array`.
 2. context - (*object*, optionnel) L'objet à utiliser tel que dans la fonction.
 
 #### Paramètre: fn
@@ -338,9 +338,9 @@ fn(item, index, array)
 
 ##### Arguments
 
-1. item   - (*mixed*) L'élément en cours dans l'_array_.
-2. index  - (*number*) L'index de l'élément en cours dans l'_array_.
-3. array  - (*array*) L'_array_ actuel.
+1. item   - (*mixed*) L'élément en cours dans l'`array`.
+2. index  - (*number*) L'index de l'élément en cours dans l'`array`.
+3. array  - (*array*) L'`array` actuel.
 
 ### Échantillon
 
@@ -357,13 +357,13 @@ var biggerThanTwenty = array.filter([10, 3, 25, 100], function(item, index){
 Méthode: indexOf
 ---------------
 
-Retourne l'index du premier élément dans l'_array_ qui correspond à la valeur spécifiée,
+Retourne l'index du premier élément dans l'`array` qui correspond à la valeur spécifiée,
 ou -1 si la valeur n'est pas trouvée.
 
 ### Paramètres
 
-1. item - (*object*) L'élément à rechercher dans l'_array_.
-2. from - (*number*, optionnel: à 0 par défaut) L'index à partir duquel rechercher dans l'_array_.
+1. item - (*object*) L'élément à rechercher dans l'`array`.
+2. from - (*number*, optionnel: à 0 par défaut) L'index à partir duquel rechercher dans l'`array`.
 
 ### Échantillons
 
@@ -379,8 +379,8 @@ array.indexOf(['apple', 'lemon'], 'banana'); // retourne -1
 Méthode: map
 -----------
 
-Crée et retourne un nouvel _array_ avec les résultats de l'appel à une fonction 
-fournie sur chaqun des éléments de l'_array_.
+Crée et retourne un nouvel `array` avec les résultats de l'appel à une fonction 
+fournie sur chaqun des éléments de l'`array`.
 
 ### Syntaxe
 
@@ -390,8 +390,8 @@ var mappedArray = array.map(myArray, fn[, context])
 
 ### Paramètres
 
-1. myArray - (*array*) L'_array_ original à mapper.
-2. fn - (*fonction*) La fonction à appliquer sur l'élément de l'_array_ produisant le nouvel élément.
+1. myArray - (*array*) L'`array` original à mapper.
+2. fn - (*fonction*) La fonction à appliquer sur l'élément de l'`array` produisant le nouvel élément.
 3. context - (*object*, optionnel) L'objet à utiliser tel que dans la fonction.
 
 #### Argument: fn
@@ -404,9 +404,9 @@ fn(item, index, array)
 
 ##### Arguments
 
-1. item   - (*mixed*) L'élement en cours dans l'_array_.
-2. index  - (*number*) L'index de l'élément n cours dans l'_array_.
-3. array  - (*array*) L'_array_ actuel.
+1. item   - (*mixed*) L'élement en cours dans l'`array`.
+2. index  - (*number*) L'index de l'élément n cours dans l'`array`.
+3. array  - (*array*) L'`array` actuel.
 
 ### Échantillon
 
@@ -423,7 +423,7 @@ var timesTwo = array.map([1, 2, 3], function(item, index){
 Méthode: every
 -------------
 
-Retourne `true` si chaque élément de l'_array_ satisfait la fonction de test fournie.
+Retourne `true` si chaque élément de l'`array` satisfait la fonction de test fournie.
 
 ### Syntaxe
 
@@ -433,7 +433,7 @@ var allPassed = array.every(myArray, fn[, context])
 
 ### Paramètres
 
-1. myArray - (*array*) L' _array_ avec les éléments qui doivent être contôlés.
+1. myArray - (*array*) L' `array` avec les éléments qui doivent être contôlés.
 2. fn - (*fonction*) La fonction pour tester chaque élément.
 3. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
@@ -447,9 +447,9 @@ fn(item, index, array)
 
 ##### Arguments
 
-1. item   - (*mixed*) L'objet courant dans l'_array_.
-2. index  - (*number*) L'index de l'objet courant dans l'_array_.
-3. array  - (*array*) L'_array_ actuel.
+1. item   - (*mixed*) L'objet courant dans l'`array`.
+2. index  - (*number*) L'index de l'objet courant dans l'`array`.
+3. array  - (*array*) L'`array` actuel.
 
 ### Échantillons
 
@@ -476,9 +476,9 @@ var somePassed = array.some(myArray, fn[, context])
 
 ### Paramètres
 
-1. myArray - (*array*) L' _array_ avec les éléments qui doivent être contrôlés.
+1. myArray - (*array*) L' `array` avec les éléments qui doivent être contrôlés.
 2. fn - (*fonction*) La fonction pour tester chaque élément. Cette fonction est passée de 
-l'élément et son index dans l' _array_.
+l'élément et son index dans l' `array`.
 3. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Paramètre: fn
@@ -491,9 +491,9 @@ fn(item, index, array)
 
 ##### Arguments
 
-1. item   - (*mixed*) L'objet courant dans l'_array_.
-2. index  - (*number*) L'index de l'objet courant dans l'_array_.
-3. array  - (*array*) L'_array_ actuel.
+1. item   - (*mixed*) L'objet courant dans l'`array`.
+2. index  - (*number*) L'index de l'objet courant dans l'`array`.
+3. array  - (*array*) L'`array` actuel.
 
 ### Échantillons
 
@@ -537,10 +537,10 @@ fn(item, index, object)
 
 ##### Arguments
 
-1. item   - (*mixed*) L'objet courant dans l'_array_.
-2. index  - (*number*) L'index de l'objet courant dans l'_array_. Dans le cas d'un objet,
+1. item   - (*mixed*) L'objet courant dans l'`array`.
+2. index  - (*number*) L'index de l'objet courant dans l'`array`. Dans le cas d'un objet,
 La clé est passée plutôt que l'index.
-3. object - (*mixed*) L'_array_/objet actuel.
+3. object - (*mixed*) L'`array`/objet actuel.
 
 ### Échantillon
 
@@ -557,7 +557,7 @@ array.forEach(['Sun', 'Mon', 'Tue'], function(day, index){
 fonction: isArray
 -----------------
 
-Retourne `true` si l'objet est un _array_, sinon `false`.
+Retourne `true` si l'objet est un `array`, sinon `false`.
 
 ### Syntaxe
 
@@ -567,14 +567,14 @@ array.isArray(object)
 
 ### Paramètres
 
-1. object (*mixed*) L'objet à contrôler s'il s'agit d'un _array_.
+1. object (*mixed*) L'objet à contrôler s'il s'agit d'un `array`.
 
 ### Échantillons
 
 ```js
 array.isArray([1, 2, 3]) // Vrai pour les _arrays_
 array.isArray('moo') // Faux pour tout autre type
-array.isArray({length: 1, 0: 'hi'}) // Aussi faux pour tout les objets comme un _array_
+array.isArray({length: 1, 0: 'hi'}) // Aussi faux pour tout les objets comme un `array`
 ```
 
 ### Note
@@ -707,7 +707,7 @@ Implémente les méthodes `Object.prototype`
 
 Produits
 -------
-TODO
+
 ```js
 var object = require('prime/es5/object')
 var test = {autobot: 'optimus'}
@@ -735,10 +735,10 @@ object.hasOwnProperty(test, 'decepticons') // false
 Module: es5/regexp
 ==================
 
-Like `es5/fonction` or `es5/number` this module contains ES5 methods as
-generics.
+Comme `es5/fonction` ou `es5/number`, ce module contient les méthodes ES5 de façon
+générique.
 
-produits
+Produits
 -------
 
 ```js
@@ -764,14 +764,14 @@ regexp.test(/\w+$/, '---abc') // true
 Module: es5/string
 ==================
 
-This module contains ECMAScript 5 string methods as generics.
-Native JavaScript methods will always get invoked when available,
-otherwise a compliant JavaScript substitute will be used.
+Ce module contient les méthodes de chaîne de caractère ECMAScript 5 de façon générique.
+Les méthodes JavaScript natives seront toujours invoquées si possible,
+sinon, un substitut JavaScript serra utilisé.
 
-produits
+Produits
 -------
 
-The module produits an object containing all the string methods.
+Le module produit un objet qui contient toutes les méthodes de chaînes de caractères.
 
 ```js
 var string = require('prime/es5/string')
@@ -791,12 +791,12 @@ string.charAt('charAt', 4) // 'A'
 Méthode: trim
 ------------
 
-Trims the leading and trailing spaces off a string.
+Supprime les espaces de début et de fin d'une chaîne
 
 ### Échantillon
 
 ```js
-string.trim('    i like cookies     ') // returns 'i like cookies'
+string.trim('    i like cookies     ') // retourne 'i like cookies'
 ```
 
 ### À voir aussi
@@ -806,33 +806,31 @@ string.trim('    i like cookies     ') // returns 'i like cookies'
 Module: shell
 =============
 
-Shell makes chaining of methods possible. It produits a fonction that accepts one
-parameter, and returns a so called *ghost* object. This object contains all
-methods that are defined for this type of variable. Each méthode returns the
-ghost object of the value after the méthode is called, which creates chaining. To
-get the original value, the `valueOf` méthode can be used.
+Shell fait un chaînage des méthodes possibles. Il produit une fonction qui accepte un paramètre
+, et retourne un objet *fantôme*. Cet objet contient toutes les méthodes définies pour ce
+type de variable. Chaque méthode retourne l'objet fantôme de la valeur après l'appel de la dite méthode,
+ce qui crait un chaînage. Pour obtenir la valeur d'origine, on utilise la méthode `valueOf`.
 
-It also defines the basic type objects that can be used by other modules to add
-methods (which is done by **es5** and **shell** modules). Those objects are
-called *shells*. Shells are prime objects, so they have an `implement` méthode.
-When the `implement` méthode is used, the méthode is implemented as generic on the
-shell object, on the prototype of the shell object, as well as on the ghost
-object.
+Il définit aussi les objets de type basique qui peuvent être utilisé par les autres modules pour
+ajouter des méthodes (ce qui est réalisé par les modules **es5** et **shell**).
+Ces objets sont appelés *shells*. Les Shells sont des objets prime, ils ont donc une méthode `implement`.
+lorsque la méthode `implement` est utilisée, la méthode est implémentée de façon générique sur l'objet
+shell, son prototype ainsi que son ghost.
 
-produits
+Produits
 -------
 
-The module produits the `shell` fonction.
+Le module produit la fonction `shell`.
 
 ```js
 var shell = require('prime/shell')
 shell('  1,2,3  ').trim().split(',').forEach(function(value){
     console.log(value)
-}) // logs 1, 2, 3
+}) // Affiche 1, 2, 3
 
-// array is a 'shell'
+// array est un 'shell'
 var array = require('prime/shell/array')
-// we can add new methods with the implement méthode
+// Nous pouvons ajouter de nouvelles méthodes avec la méthode implement
 array.implement({
     sum: function(){
         var sum = 0
@@ -840,13 +838,13 @@ array.implement({
         return sum
     }
 })
-// and use the newly added méthode
+// et utiliser la toute nouvelle méthode ainsi ajoutée
 array.sum([3, 4, 7]) // 14
-// we can also use it together with the shell fonction
+// Nous pouvons également l'utiliser avec la fonction shell
 shell([3, 4, 7]).sum().valueOf() // 14
 
-// alternatively the constructor of a shell returns a ghost object,
-// to 'cast' variables.
+// Le constructeur d'un shell peut également retourner un objet ghost,
+// afin de 'caster' des variables.
 array(document.querySelectorAll('a')).each(function(node){
     node.style.color = 'red'
 })
@@ -855,20 +853,20 @@ array(document.querySelectorAll('a')).each(function(node){
 ### Échantillon
 
 ```js
-shell("some string") // returns a Ghost instance for strings
-shell([1, 2, 3, 10]) // returns a Ghost instance for arrays
-shell(null) // returns null, there is no Ghost object for null values
+shell("some string") // retourne une instance fantôme pour chaîne de caractères
+shell([1, 2, 3, 10]) // retourne une instance fantôme pour des _arrays_
+shell(null) // retourne null, il n'y a pas de fantôme pour une valeur nulle
 ```
 
 prime: Ghost
 ------------
 
-`Ghost` is a wrapper around the value, returned by the `shell` fonction, which
-has the following methods:
+`Ghost` est une enveloppe autour d'une valeur retournée par la fonction `shell`, qui
+a les méthodes suivantes :
 
 #### Méthode: valueOf
 
-`valueOf` returns the primitive value of the ghost.
+`valueOf` Retourne la valeur originale du ghost.
 
 ```js
 shell(10).valueOf() // 10
@@ -880,7 +878,7 @@ shell("1,2,3,4").split(",").valueOf() // [1, 2, 3, 4]
 
 #### Méthode: toString
 
-`toString` returns the string representation of the value of the ghost.
+`toString` Retourne la représentation littérale du ghost.
 
 ```js
 shell(40) // "40"
@@ -893,7 +891,7 @@ shell(42).toString() // "42"
 
 #### Méthode: is
 
-Checks if the value of the Ghost strictly equals another value.
+Contrôle si la valeur du Ghost est strictement égale à une autre valeur.
 
 ```js
 shell(20).is(20) // true
@@ -903,12 +901,12 @@ shell("20").is(20) // false
 Module: shell/array
 ===================
 
-This module implements extra methods in the `es5/array` module.
+Ce module implémente les méthodes externes du module `es5/array`.
 
 produits
 -------
 
-The module produits the same object as `es5/array`, and adds new methods to it.
+Le module produit le même objet que `es5/array`, et y ajoute de nouvelles méthodes.
 
 ```js
 var array = require('prime/shell/array')
@@ -920,13 +918,13 @@ array.backwards([1, 2, 3], function(value){
 Méthode: set
 -----------
 
-Set a new value, or replace an old value.
-It returns the array.
+Affecte une nouvelle valeur, ou en remplace une ancienne.
+Ceci retoure l'`array`.
 
 ### Paramètres
 
-1. index - (*number*) the index in the array to insert or modify the array.
-2. value - (*mixed*) the value to associate with the specified index.
+1. index - (*number*) L'index dans l'`array` afin d'insérer ou de modifier ce dernier.
+2. value - (*mixed*) La valeur à associer pour l'index spécifié..
 
 ### Échantillon
 
@@ -938,7 +936,7 @@ array.set(myArray, 1, 'Michelle') // [1, 'Michell', 3]
 Méthode: get
 -----------
 
-Returns the value associated with the given index.
+Retourne la valeur associée à l'index donné.
 
 ```js
 var myArray = [1, 2, 3]
@@ -948,7 +946,7 @@ array.get(myArray, 2) // 3
 Méthode: count
 -------------
 
-Returns the number of items in the array
+Retourne le nombre d'éléments dans l'`array`.
 
 ```js
 var myArray = [1, 2, 3, 4]
@@ -958,14 +956,13 @@ array.count(myArray) // 4
 Méthode: each
 ------------
 
-Calls a fonction for each key-value pair in the object. The returned value is
-the original array. If the passed fonction returns `false` the loop stops.
+Appelle une fonction pour chaque paire clé-valeur dans l'objet. La valeur retournée est 
+l'`array` d'origine. Si la fonction passée retourne `false` la boucle s'arrete.
 
 ### Paramètres
 
-1. fn - (*fonction*) The fonction which should be executed on each item in the
-array. This fonction is passed the value and its key in the array.
-2. context - (*object*, optional) The object to use as 'this' in the fonction.
+1. fn - (*fonction*) La fonction qui doit être executée sur chaque élément de l'`array`. Cette fonction prend en argument la paire clé-valeur.
+2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Paramètre: fn
 
@@ -973,7 +970,7 @@ array. This fonction is passed the value and its key in the array.
 
 1. value - (*mixed*) The current value in the array.
 2. key   - (*number*) The current value's index in the array.
-3. array - (*array*) L'_array_ actuel.
+3. array - (*array*) L'`array` actuel.
 
 ### Échantillon
 
@@ -992,7 +989,7 @@ array.each(["Sunday", "Monday", "Tuesday"], function(value, key){
 Méthode: backwards
 -----------------
 
-Like `array.each`, but calls the fonction in the reversed order.
+Comme `array.each`, sauf qu'elle appelle la fonction dans l'ordre inverse.
 
 ### Échantillon
 
@@ -1005,7 +1002,7 @@ array.backwards([1, 2, 3], function(value){
 Méthode: index
 -------------
 
-Like `array.indexOf`, but returns `null` if the value is not in the array.
+Comme `array.indexOf`, sauf qu'elle retourne `null` si la valeur n'est pas dans l'`array`.
 
 ### Échantillon
 
@@ -1017,26 +1014,26 @@ array.index([1, 2, 3, 4], 6) // null
 Méthode: remove
 --------------
 
-Remove a value, by index, from the array.
-The méthode returns the removed value.
+Retire une valeur de l'`array` via un index.
+La méthode retourne la valeur retirée.
 
 ### Échantillon
 
 ```js
 var cities = ['London', 'Rome', 'Amsterdam', 'San Francisco']
-array.remove(cities, 1) // returns 'Rome'
+array.remove(cities, 1) // retourne 'Rome'
 // cities is now ['London', 'Amsterdam', 'San Francisco']
 ```
 
 Module: shell/date
 ==================
 
-Shell module which produits the `es5/date` module.
+Module Shell qui produit le module `es5/date`.
 
-produits
+Produits
 -------
 
-Date shell object.
+Objet date du Shell.
 
 ```js
 var date = require('prime/shell/date')
@@ -1046,12 +1043,12 @@ date.getDate(new Date()) // day of the month, something like 12.
 Module: shell/fonction
 ======================
 
-Shell module which produits the `es5/fonction` module.
+Module Shell qui produit le module `es5/fonction`.
 
-produits
+Produits
 -------
 
-fonction shell object.
+Fonction de l'objet Shell.
 
 ```js
 var fn = require('prime/shell/fonction')
@@ -1064,17 +1061,17 @@ fn.call(function(fahrenheit){
 Module: shell/number
 ====================
 
-This module implements extra methods in the `es5/number` module.
+Ce module implémente les méthodes externes du `es5/number`.
 
-produits
+Produits
 -------
 
-The module produits the same object as `es5/number`, and adds new methods to it.
+Le module produit le même objet que `es5/number`, et y ajoute de nouvelles méthodes.
 
 Méthode: limit
 -------------
 
-Returns the number limited between two bounds.
+Retourne le numéro limité entre deux chiffres.
 
 ### Syntaxe
 
@@ -1084,42 +1081,41 @@ number.limit(myNumber, min, max);
 
 ### Paramètres
 
-1. num - (*number*) The number that should be limited.
-2. min - (*number*) The minimum possible value.
-3. max - (*number*) The maximum possible value.
+1. num - (*number*) Le numéro qui doit être limité.
+2. min - (*number*) La valeur minimale.
+3. max - (*number*) La valeur maximale.
 
 ### Échantillon
 
 ```js
-number.limit(12, 2, 6.5)  // returns 6.5
-number.limit(-4, 2, 6.5)  // returns 2
-number.limit(4.3, 2, 6.5) // returns 4.3
+number.limit(12, 2, 6.5)  // retourne 6.5
+number.limit(-4, 2, 6.5)  // retourne 2
+number.limit(4.3, 2, 6.5) // retourne 4.3
 ```
 
 Méthode: round
 -------------
 
-Returns this number rounded to the specified precision.
+Retourne ce nombre arrondi à la décimale donnée.
 
 ### Paramètres
 
-1. num - (*number*) The number that should be rounded.
-2. precision - (*number*, optional: defaults to 0) The number of digits after
-the decimal place. This can also be an negative number.
+1. num - (*number*) Le nombre qui doit être arrondi.
+2. precision - (*number*, optional: defaults to 0) Le nombre de chiffres après la virgule. Ce peut aussi être un nombre négatif.
 
 ### Échantillon
 
 ```js
-number.round(12.45)     // returns 12
-number.round(12.45, 1)  // returns 12.5
-number.round(12.45, -1) // returns 10
+number.round(12.45)     // retourne 12
+number.round(12.45, 1)  // retourne 12.5
+number.round(12.45, -1) // retourne 10
 ```
 
 Méthode: times
 -------------
 
-Executes the fonction passed in the specified number of times.
-Returns the original number.
+Execute la fonction passée un nombre de fois demandé.
+Retourne le nombre d'origine.
 
 ### Syntaxe
 
@@ -1129,10 +1125,9 @@ number.times(num, fn[, context])
 
 ### Paramètres
 
-1. num - (*number*) The number of times the fonction should be executed.
-2. fn - (*fonction*) The fonction that should be executed on each iteration
-of the loop. This fonction is passed the current iteration's index.
-3. context - (*object*, optional) The object to use as 'this' in the fonction.
+1. num - (*number*) Le nombre de fois que la fonction doit être executée.
+2. fn - (*fonction*) La fonction qui doit être executée sur chaque itération de la boucle. Cette fonction prend en argument l'index courant.
+3. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 ### Échantillon
 
@@ -1143,28 +1138,28 @@ number.times(4, alert); // alerts "0", then "1", then "2", then "3".
 Méthode: random
 --------------
 
-Returns a random integer between the two passed in values.
+Retourne un `integer` aléatoire entre deux valeurs passées.
 
 ### Paramètres
 
-1. min - (*number*) The minimum value (inclusive).
-2. max - (*number*) The maximum value (inclusive).
+1. min - (*number*) La valeur minimale (inclusif).
+2. max - (*number*) La valeur maximale (inclusif).
 
 ### Échantillon
 
 ```js
-number.random(5, 20); // returns a random number between 5 and 20.
+number.random(5, 20); // Retourne un nombre aléatoire entre 5 et 20.
 ```
 
 Module: shell/object
 ====================
-
+TODO
 This module implements new methods in the `es5/object` module.
 
 produits
 -------
 
-The module produits the same object as `es5/object`, and adds new methods to it.
+Le module produit le même objet que `es5/object`, et y ajoute de nouvelles méthodes.
 
 ```js
 var object = require('prime/shell/object')
@@ -1174,7 +1169,7 @@ Méthode: set
 -----------
 
 Set a new value, or replace an old value.
-It returns the object.
+It retourne the object.
 
 ### Paramètres
 
@@ -1192,7 +1187,7 @@ data.name // Michelle
 Méthode: get
 -----------
 
-Returns the value associated with the given key.
+retourne the value associated with the given key.
 
 ```js
 var data = {name: 'Michelle'}
@@ -1202,7 +1197,7 @@ object.get(object, 'name') // Michelle
 Méthode: count
 -------------
 
-Returns the number of items in the object.
+retourne the number of items in the object.
 
 ```js
 var data = {firstname: 'Neil', lastname: 'Armstrong', age: 82}
@@ -1253,7 +1248,7 @@ object.each({
 Méthode: map
 -----------
 
-Creates and returns a new object with the results of calling a provided fonction
+Creates and retourne a new object with the results of calling a provided fonction
 on every value in the object.
 
 ### Paramètres
@@ -1279,8 +1274,8 @@ var timesTwo = object.map({a: 1, b: 2, c: 3}, function(value, key){
 Méthode: filter
 --------------
 
-Creates and returns a new object with all of the elements of the object for
-which the provided filtering fonction returns `true`.
+Creates and retourne a new object with all of the elements of the object for
+which the provided filtering fonction retourne `true`.
 
 ### Paramètres
 
@@ -1305,8 +1300,8 @@ var biggerThanTwenty = object.filter({a: 10, b: 20, c: 30}, function(value, key)
 Méthode: every
 -------------
 
-Returns `true` if every value in the object satisfies the provided testing
-fonction, otherwise this méthode returns `false`.
+retourne `true` if every value in the object satisfies the provided testing
+fonction, otherwise this méthode retourne `false`.
 
 ### Paramètres
 
@@ -1331,7 +1326,7 @@ var areAllBigEnough = object.every({a: 10, b: 4, c: 25}, function(value, key){
 Méthode: some
 ------------
 
-Returns `true` if at least one value in the object satisfies the provided
+retourne `true` if at least one value in the object satisfies the provided
 testing fonction, otherwise `false` is returned.
 
 ### Paramètres
@@ -1357,7 +1352,7 @@ var areAnyBigEnough = object.some({a: 10, b: 4, c: 25}, function(value, key){
 Méthode: index
 -------------
 
-Returns the key which is associated with the first found value that is equal
+retourne the key which is associated with the first found value that is equal
 to the passed value. If no value found, `null` is returned.
 
 ### Paramètres
@@ -1387,14 +1382,14 @@ removed value is returned.
 
 ```js
 var data = {name: 'John', lastName: 'Doe'}
-object.remove(object, 'lastName') // returns 'Doe'
+object.remove(object, 'lastName') // retourne 'Doe'
 // object now holds an object containing: { 'name': 'John' }
 ```
 
 Méthode: keys
 ------------
 
-Returns an array containing all the keys.
+retourne an array containing all the keys.
 
 ### Échantillon
 
@@ -1410,7 +1405,7 @@ object.keys(data) // ['name', 'lastName']
 Méthode: values
 --------------
 
-Returns an array containing all the values of the object.
+retourne an array containing all the values of the object.
 
 ### Échantillon
 
@@ -1422,7 +1417,7 @@ object.values(data) // ['John', 'Doe']
 Module: shell/regexp
 ====================
 
-Shell module which produits the `es5/regexp` module.
+Module Shell qui produit le module `es5/regexp` module.
 
 produits
 -------
@@ -1458,7 +1453,7 @@ Removes all extraneous whitespace from a string and trims it.
 ### Échantillon
 
 ```js
-string.clean(' i      like     cookies      \n\n') // returns 'i like cookies'
+string.clean(' i      like     cookies      \n\n') // retourne 'i like cookies'
 ```
 
 Méthode: camelize
@@ -1469,7 +1464,7 @@ Converts a hyphenated string to a camelcased string.
 ### Échantillon
 
 ```js
-string.camelize('I-like-cookies') // returns 'ILikeCookies'
+string.camelize('I-like-cookies') // retourne 'ILikeCookies'
 ```
 
 Méthode: hyphenate
@@ -1480,7 +1475,7 @@ Converts a camelcased string to a hyphenated string.
 ### Échantillon
 
 ```js
-string.hyphenate('ILikeCookies') // returns '-i-like-cookies'
+string.hyphenate('ILikeCookies') // retourne '-i-like-cookies'
 ```
 
 Méthode: escape
@@ -1538,7 +1533,7 @@ Méthode: on
 ----------
 
 Add a listener to the event emitter, with some specific name.
-It returns the emitter instance.
+It retourne the emitter instance.
 
 ### Paramètres
 
@@ -1557,7 +1552,7 @@ Méthode: off
 -----------
 
 Removes an listener from the emitter. It's the opposite operation of `on`.
-It returns the emitter instance.
+It retourne the emitter instance.
 
 ### Paramètres
 
@@ -1579,7 +1574,7 @@ Méthode: emit
 ------------
 
 `emit` calls all registered listeners for a specific event name.
-It returns the emitter instance.
+It retourne the emitter instance.
 
 ### Paramètres
 
@@ -1599,7 +1594,7 @@ emitter.emit('complete', 'completed', 'action')
 Module: util/map
 ================
 
-`map` is a constructor that returns an object that works like a object. Unlike a
+`map` is a constructor that retourne an object that works like a object. Unlike a
 object however, map instances can have any type of object as keys, rather than
 just strings.
 
@@ -1621,7 +1616,7 @@ Méthode: set
 -----------
 
 Set a new value, or replace an old value.
-It returns the map instance.
+It retourne the map instance.
 
 ### Paramètres
 
@@ -1639,7 +1634,7 @@ myMap.set(key, 'Michelle')
 Méthode: get
 -----------
 
-Returns the value associated with the given key.
+retourne the value associated with the given key.
 
 ```js
 var myMap = map()
@@ -1651,7 +1646,7 @@ myMap.get(key) // 'Michell'
 Méthode: count
 -------------
 
-Returns the number of items in the map.
+retourne the number of items in the map.
 
 ```js
 var myMap = map()
@@ -1663,7 +1658,7 @@ Méthode: each
 ------------
 
 Calls a fonction for each key-value pair in the map. The returned value is
-the original map. If the passed fonction returns `false` the loop stops.
+the original map. If the passed fonction retourne `false` the loop stops.
 
 ### Paramètres
 
@@ -1715,7 +1710,7 @@ myMap.backwards(function(value, key){
 Méthode: map
 -----------
 
-Creates and returns a new map with the results of calling a provided fonction on
+Creates and retourne a new map with the results of calling a provided fonction on
 every value in the map.
 
 ### Paramètres
@@ -1743,8 +1738,8 @@ var timesTwo = myMap.map(function(value, key){
 Méthode: filter
 --------------
 
-Creates and returns a map with all of the elements of the map for
-which the provided filtering fonction returns `true`.
+Creates and retourne a map with all of the elements of the map for
+which the provided filtering fonction retourne `true`.
 
 ### Paramètres
 
@@ -1771,8 +1766,8 @@ var biggerThanTwenty = myMap.filter(function(value, key){
 Méthode: every
 -------------
 
-Returns `true` if every value in the map satisfies the provided testing
-fonction, otherwise this méthode returns `false`.
+retourne `true` if every value in the map satisfies the provided testing
+fonction, otherwise this méthode retourne `false`.
 
 ### Paramètres
 
@@ -1798,7 +1793,7 @@ var areAllBigEnough = myMap.every(function(value, key){
 Méthode: some
 ------------
 
-Returns `true` if at least one value in the map satisfies the provided
+retourne `true` if at least one value in the map satisfies the provided
 testing fonction, otherwise `false` is returned.
 
 ### Paramètres
@@ -1825,7 +1820,7 @@ var areAnyBigEnough = myMap.some(function(value, key){
 Méthode: index
 -------------
 
-Returns the key which is associated with the first found value that is equal
+retourne the key which is associated with the first found value that is equal
 to the passed value. If no value found, `null` is returned.
 
 ### Paramètres
@@ -1862,7 +1857,7 @@ myMap.get(2) // null
 Méthode: keys
 ------------
 
-Returns an array containing all the keys.
+retourne an array containing all the keys.
 
 ### Échantillon
 
@@ -1875,7 +1870,7 @@ myMap.keys() // [1, 2, 3]
 Méthode: values
 --------------
 
-Returns an array containing all the values of the map.
+retourne an array containing all the values of the map.
 
 ### Échantillon
 
