@@ -1153,10 +1153,10 @@ number.random(5, 20); // Retourne un nombre aléatoire entre 5 et 20.
 
 Module: shell/object
 ====================
-TODO
-This module implements new methods in the `es5/object` module.
 
-produits
+Ce module implémente de nouvelles méthodes dans le module `es5/object`.
+
+Produits
 -------
 
 Le module produit le même objet que `es5/object`, et y ajoute de nouvelles méthodes.
@@ -1168,13 +1168,13 @@ var object = require('prime/shell/object')
 Méthode: set
 -----------
 
-Set a new value, or replace an old value.
-It retourne the object.
+Affecte une nouvelle valeur, ou la remplace.
+Cette méthode retourne l'objet.
 
 ### Paramètres
 
-1. key - (*string*) the key to insert or modify the object.
-2. value - (*mixed*) the value to associate with the specified key.
+1. key - (*string*) La clé à inserer ou à modifier dans l'objet.
+2. value - (*mixed*) La valeur à associer à la clé donnée.
 
 ### Échantillon
 
@@ -1187,7 +1187,7 @@ data.name // Michelle
 Méthode: get
 -----------
 
-retourne the value associated with the given key.
+Retourne la valeur associée à la clé donnée.
 
 ```js
 var data = {name: 'Michelle'}
@@ -1197,7 +1197,7 @@ object.get(object, 'name') // Michelle
 Méthode: count
 -------------
 
-retourne the number of items in the object.
+Retourne le nombre d'éléments dans l'objet.
 
 ```js
 var data = {firstname: 'Neil', lastname: 'Armstrong', age: 82}
@@ -1207,23 +1207,21 @@ object.count(data) // 3
 Méthode: each
 ------------
 
-Calls a fonction for each key-value pair in the object. The returned value is
-the original object. If `false` is returned in the passed fonction, the loop
-will be stopped.
+Appelle une fonction pour chaque paire de clé-valeur dans l'objet. La valeur retournée est
+l'objet d'origine. Si le retour de la fonction passée est `false`, la boulce s'arrette.
 
 ### Paramètres
 
-1. fn - (*fonction*) The fonction which should be executed on each item in the
-object. This fonction is passed the value and its key in the object.
-2. context - (*object*, optional) The object to use as 'this' in the fonction.
+1. fn - (*fonction*) La fonction à executer sur chaque élément de l'objet. Elle prend la paire clé-valeur en argument.
+2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Paramètre: fn
 
 ##### Arguments
 
-1. value  - (*mixed*) The current value in the object.
-2. key    - (*mixed*) The current value's key in the object.
-3. object - (*object*) The actual object.
+1. value  - (*mixed*) La valeur en cours dans l'objet.
+2. key    - (*mixed*) La clé de la valeur en cours dans l'objet.
+3. object - (*object*) L'objet en cours.
 
 ### Échantillon
 
@@ -1236,9 +1234,9 @@ object.each({
     console.log("the " + key + " day of the week is " + value)
     return key != 'second'
 })
-// logs "the first day of the week is Sunday",
-// "the second day of the week is Monday", but is then stopped so it will not
-// log "the third day of the week is Tuesday"
+// Affiche "the first day of the week is Sunday",
+// "the second day of the week is Monday", mais s'arrette alors.
+// Il n'afficher pas "the third day of the week is Tuesday"
 ```
 
 ### À voir aussi
@@ -1248,72 +1246,71 @@ object.each({
 Méthode: map
 -----------
 
-Creates and retourne a new object with the results of calling a provided fonction
-on every value in the object.
+Crée et retourne un nouvel objet avec les resultats de l'appel à une fonction fournie
+sur toutes les valeurs de l'objet.
 
 ### Paramètres
 
-1. fn - (*fonction*) The fonction to produce a value of the new object from
-an value of the current one.
-2. context - (*object*, optional) The object to use as 'this' in the fonction.
+1. fn - (*fonction*) La fonction appellée sur chacune des valeurs de l'objet.
+2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
-#### Arguments paramètres de fn
+#### Paramètres de fn
 
-1. value  - (*mixed*) The current value in the object.
-2. key    - (*mixed*) The current value's key in the object.
-3. object - (*object*) The actual object.
+1. value  - (*mixed*) La valeur en cours dans l'objet.
+2. key    - (*mixed*) La clé de la valeur en cours dans l'objet.
+3. object - (*object*) L'objet en cours.
 
 ### Échantillon
 
 ```js
 var timesTwo = object.map({a: 1, b: 2, c: 3}, function(value, key){
     return value * 2
-}) // timesTwo now holds an object containing: {a: 2, b: 4, c: 6}
+}) // timesTwo contient maintenant l'objet {a: 2, b: 4, c: 6}
 ```
 
 Méthode: filter
 --------------
 
-Creates and retourne a new object with all of the elements of the object for
-which the provided filtering fonction retourne `true`.
+Crée et retourne un nouvel objet avec chacun des éléments dont le retour de la fonction passée 
+retourne `true`.
 
 ### Paramètres
 
-1. fn - (*fonction*) The fonction to test each element of the object. This
-fonction is passed the value and its key in the object.
-2. context - (*object*, optional) The object to use as 'this' in the fonction.
+1. fn - (*fonction*) La fonction à tester sur chacun des éléments. Cette fonction prend en argument 
+la paire clé-valeur de l'objet.
+2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
-#### Arguments paramètres de fn
+#### Paramètres de fn
 
-1. value  - (*mixed*) The current value in the object.
-2. key    - (*mixed*) The current value's key in the object.
-3. object - (*object*) The actual object.
+1. value  - (*mixed*) La valeur en cours dans l'objet.
+2. key    - (*mixed*) La clé de la valeur en cours dans l'objet.
+3. object - (*object*) L'objet en cours.
 
 ### Échantillon
 
 ```js
 var biggerThanTwenty = object.filter({a: 10, b: 20, c: 30}, function(value, key){
     return value > 20
-}) // biggerThanTwenty now holds an object containing: {c: 30}
+}) // biggerThanTwenty contient maintenant l'object {c: 30}
 ```
 
 Méthode: every
 -------------
 
-retourne `true` if every value in the object satisfies the provided testing
-fonction, otherwise this méthode retourne `false`.
+Retourne `true` si chacune des valeurs de l'objet valide le test de la fonction,
+sinon elle retourne `false`.
 
 ### Paramètres
 
-1. fn - (*fonction*) The fonction to test each element of the object. This
-fonction is passed the value and its key in the object.
-2. context - (*object*, optional) The object to use as 'this' in the fonction.
+1. fn - (*fonction*) La fonction qui teste chaque élément de l'objet. Elle prend la paire
+clé-valeur en argument.
+2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Arguments paramètres de fn
 
-1. value  - (*mixed*) The current value in the object.
-2. key    - (*mixed*) The current value's key in the object.
-3. object - (*object*) The actual object.
+1. value  - (*mixed*) La valeur en cours dans l'objet.
+2. key    - (*mixed*) La clé de la valeur en cours dans l'objet.
+3. object - (*object*) L'objet en cours.
 
 ### Échantillon
 
@@ -1326,20 +1323,20 @@ var areAllBigEnough = object.every({a: 10, b: 4, c: 25}, function(value, key){
 Méthode: some
 ------------
 
-retourne `true` if at least one value in the object satisfies the provided
-testing fonction, otherwise `false` is returned.
+Retourne `true` si au moins une valeur de l'objet valide le test de la fonction,
+sinon elle retourne `false`.
 
 ### Paramètres
 
-1. fn - (*fonction*) The fonction to test each element of the object. This
-fonction is passed the value and its key in the object.
-2. context - (*object*, optional) The object to use as 'this' in the fonction.
+1. fn - (*fonction*) La fonction à tester sur chacun des éléments.
+Elle prend la paire clé-valeur en argument.
+2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Arguments paramètres de fn
 
-1. value  - (*mixed*) The current value in the object.
-2. key    - (*mixed*) The current value's key in the object.
-3. object - (*object*) The actual object.
+1. value  - (*mixed*) La valeur en cours dans l'objet.
+2. key    - (*mixed*) La clé de la valeur en cours dans l'objet.
+3. object - (*object*) L'objet en cours.
 
 ### Échantillon
 
@@ -1352,12 +1349,12 @@ var areAnyBigEnough = object.some({a: 10, b: 4, c: 25}, function(value, key){
 Méthode: index
 -------------
 
-retourne the key which is associated with the first found value that is equal
-to the passed value. If no value found, `null` is returned.
+Retourne la clé associée à la premier valeur égal à celle passée en argument.
+Retourne `null` si non trouvé.
 
 ### Paramètres
 
-1. item - (*mixed*) The item to search for in the object.
+1. item - (*mixed*) L'élément à rechercher dans l'objet.
 
 ### Échantillon
 
@@ -1371,25 +1368,25 @@ object.index(object, 'four') // null
 Méthode: remove
 --------------
 
-Removes the specified key from the object. Once the item is removed, the
-removed value is returned.
+Retire la clé-valeur spécifiée par sa clé de l'objet. Une fois l'élément retiré,
+sa valeur est retournée.
 
 ### Paramètres
 
-1. key - (*string*) The key to search for in the object.
+1. key - (*string*) La clé à rechercher dans l'objet.
 
 ### Échantillon
 
 ```js
 var data = {name: 'John', lastName: 'Doe'}
 object.remove(object, 'lastName') // retourne 'Doe'
-// object now holds an object containing: { 'name': 'John' }
+// object contient maintenant { 'name': 'John' }
 ```
 
 Méthode: keys
 ------------
 
-retourne an array containing all the keys.
+Retourne un `array` contenant toutes les clés.
 
 ### Échantillon
 
@@ -1405,7 +1402,7 @@ object.keys(data) // ['name', 'lastName']
 Méthode: values
 --------------
 
-retourne an array containing all the values of the object.
+Retourne un `array` contenant toutes les valeurs de l'objet.
 
 ### Échantillon
 
@@ -1417,12 +1414,12 @@ object.values(data) // ['John', 'Doe']
 Module: shell/regexp
 ====================
 
-Module Shell qui produit le module `es5/regexp` module.
+Module Shell qui produit le module `es5/regexp`.
 
-produits
+Produits
 -------
 
-Regexp shell object.
+Objet shell de regexp.
 
 ```js
 var regexp = require('prime/shell/regexp')
@@ -1432,11 +1429,11 @@ regexp.test(/\s/, 'Does-this-string-contain-whitespace?') // false
 Module: shell/string
 ====================
 
-This module implements new methods in the `es5/string` module.
+Ce module implémente de nouvelles méthodes dans le module `es5/string`.
 
-produits
+Produits
 -------
-
+TODO
 The module produits the `es5/string` object, and adds more, custom string
 methods.
 
@@ -1621,7 +1618,7 @@ It retourne the map instance.
 ### Paramètres
 
 1. key - (*mixed*) the key to insert or modify the map.
-2. value - (*mixed*) the value to associate with the specified key.
+2. value - (*mixed*) La valeur à associer à la clé donnée.
 
 ### Échantillon
 
@@ -1664,7 +1661,7 @@ the original map. If the passed fonction retourne `false` the loop stops.
 
 1. fn - (*fonction*) The fonction which should be executed on each item in the
 map. This fonction is passed the value and its key in the map.
-2. context - (*object*, optional) The object to use as 'this' in the fonction.
+2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Paramètre: fn
 
@@ -1717,7 +1714,7 @@ every value in the map.
 
 1. fn - (*fonction*) The fonction to produce a value of the new map from
 an value of the current one.
-2. context - (*object*, optional) The object to use as 'this' in the fonction.
+2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Arguments paramètres de fn
 
@@ -1745,7 +1742,7 @@ which the provided filtering fonction retourne `true`.
 
 1. fn - (*fonction*) The fonction to test each element of the map. This
 fonction is passed the value and its key in the map.
-2. context - (*object*, optional) The object to use as 'this' in the fonction.
+2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Arguments paramètres de fn
 
@@ -1773,7 +1770,7 @@ fonction, otherwise this méthode retourne `false`.
 
 1. fn - (*fonction*) The fonction to test each element of the map. This
 fonction is passed the value and its key in the map.
-2. context - (*object*, optional) The object to use as 'this' in the fonction.
+2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Arguments paramètres de fn
 
@@ -1800,7 +1797,7 @@ testing fonction, otherwise `false` is returned.
 
 1. fn - (*fonction*) The fonction to test each element of the map. This
 fonction is passed the value and its key in the map.
-2. context - (*object*, optional) The object to use as 'this' in the fonction.
+2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Arguments paramètres de fn
 
