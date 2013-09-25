@@ -404,7 +404,7 @@ fn(item, index, array)
 
 ##### Arguments
 
-1. item   - (*mixed*) L'élement en cours dans l'`array`.
+1. item   - (*mixed*) L'élément en cours dans l'`array`.
 2. index  - (*number*) L'index de l'élément n cours dans l'`array`.
 3. array  - (*array*) L'`array` actuel.
 
@@ -1433,9 +1433,8 @@ Ce module implémente de nouvelles méthodes dans le module `es5/string`.
 
 Produits
 -------
-TODO
-The module produits the `es5/string` object, and adds more, custom string
-methods.
+
+Le module produit le model `es5/string`, et ajoute plus de méthodes pour les chaînes de caractère.
 
 ```js
 var string = require('prime/shell/string')
@@ -1445,7 +1444,7 @@ string.capitalize('i like cookies') // "I Like Cookies"
 Méthode: clean
 -------------
 
-Removes all extraneous whitespace from a string and trims it.
+Retire tous les espaces en trop dans la chaîne de caractères.
 
 ### Échantillon
 
@@ -1456,7 +1455,7 @@ string.clean(' i      like     cookies      \n\n') // retourne 'i like cookies'
 Méthode: camelize
 ----------------
 
-Converts a hyphenated string to a camelcased string.
+Convertit une chaîne contenant des traits d'union en camelcase.
 
 ### Échantillon
 
@@ -1467,7 +1466,7 @@ string.camelize('I-like-cookies') // retourne 'ILikeCookies'
 Méthode: hyphenate
 -----------------
 
-Converts a camelcased string to a hyphenated string.
+Convertit une chaîne en camelcase en une contenant des traits d'union.
 
 ### Échantillon
 
@@ -1478,7 +1477,7 @@ string.hyphenate('ILikeCookies') // retourne '-i-like-cookies'
 Méthode: escape
 --------------
 
-Escape an string so it can safely be used in a regular expression.
+Ajoute les caractères d'échapement afin d'êter utilisé dans une expression régulière.
 
 ### Échantillon
 
@@ -1489,7 +1488,7 @@ string.escape('(un)believable') // "\(un\)believable"
 Méthode: number
 --------------
 
-Tries to parse a string into an number.
+Tente de convertir une chaîne de caractère en nombre.
 
 ### Échantillon
 
@@ -1500,12 +1499,12 @@ string.number('3.14deg') // 3.14
 Module: util/emitter
 ====================
 
-Emitter is a module for managing and emitting events.
+Emitter est un module qui gère et émet des événements (`events`).
 
-produits
+Produit
 -------
 
-The module produits the emitter prime.
+Le module produit l'emetteur `prime`.
 
 ```js
 var prime = require('prime')
@@ -1529,13 +1528,13 @@ var MyPrime = prime({
 Méthode: on
 ----------
 
-Add a listener to the event emitter, with some specific name.
-It retourne the emitter instance.
+Ajoute un écouteur à l'évènement `emitter` dont le nom est spécifié.
+Retourne l'instance de l'`emitter`.
 
 ### Paramètres
 
-1. event - (*string*) the name of the event (e.g. 'complete').
-2. fn - (*fonction*) the fonction to execute.
+1. event - (*string*) Le nom de l'évènement (e.g. 'complete').
+2. fn - (*fonction*) La fonction à exécuter.
 
 ### Échantillon
 
@@ -1548,13 +1547,13 @@ emitter.on('complete', function(){
 Méthode: off
 -----------
 
-Removes an listener from the emitter. It's the opposite operation of `on`.
-It retourne the emitter instance.
+Retire un écouter de l'`emitter` -action inverse de la méthode `on`-
+Retourne l'instance de l'`emitter`.
 
 ### Paramètres
 
-1. event - (*string*) the name of the event (e.g. 'complete').
-2. fn - (*fonction*) the fonction to execute.
+1. event - (*string*) Le nom de l'évènement (e.g. 'complete').
+2. fn - (*fonction*) La fonction à exécuter.
 
 ### Échantillon
 
@@ -1570,20 +1569,19 @@ emitter.off('complete', listener)
 Méthode: emit
 ------------
 
-`emit` calls all registered listeners for a specific event name.
-It retourne the emitter instance.
+`emit` appelle tous les évènements enregistrés d'un nom spécifié.
+Retourne l'instance de l'`emitter`.
 
 ### Paramètres
 
-1. event - (*string*) the name of the event (e.g. 'complete').
-2. ...arguments - all arguments where `i > 0` are passed as arguments of the
-listeners.
+1. event - (*string*) Le nom de l'évènement (e.g. 'complete').
+2. ...arguments - Tous les arguments à passer en argument de la fonction de l'écouteur.
 
 ### Échantillon
 
 ```js
 emitter.on('complete', function(a, b){
-    console.log('I just ' + a + ' my ' + b) // logs "I just completed my action"
+    console.log('I just ' + a + ' my ' + b) // Affiche "I just completed my action"
 })
 emitter.emit('complete', 'completed', 'action')
 ```
@@ -1591,14 +1589,14 @@ emitter.emit('complete', 'completed', 'action')
 Module: util/map
 ================
 
-`map` is a constructor that retourne an object that works like a object. Unlike a
-object however, map instances can have any type of object as keys, rather than
-just strings.
+`map` est un constructeur qui retourne un objet qui fonctionne comme un objet. A la
+différence qu'un objet `map` peut avoir d'autres objets en clé et non juste une chaîne de 
+caractère.
 
-produits
+Produit
 -------
 
-map is a prime.
+`map` est un `prime`.
 
 ```js
 var map = require('prime/map')
@@ -1612,12 +1610,12 @@ myMap.values() // [{b: 1}, {b: 2}]
 Méthode: set
 -----------
 
-Set a new value, or replace an old value.
-It retourne the map instance.
+Affecte une nouvelle valeur ou la remplace.
+Retourne l'instance `map`.
 
 ### Paramètres
 
-1. key - (*mixed*) the key to insert or modify the map.
+1. key - (*mixed*) La clés dont la valeur doit être ajoutée ou modifiée.
 2. value - (*mixed*) La valeur à associer à la clé donnée.
 
 ### Échantillon
@@ -1631,7 +1629,7 @@ myMap.set(key, 'Michelle')
 Méthode: get
 -----------
 
-retourne the value associated with the given key.
+Retourne la valeur associée à la clé passée en argument.
 
 ```js
 var myMap = map()
@@ -1643,7 +1641,7 @@ myMap.get(key) // 'Michell'
 Méthode: count
 -------------
 
-retourne the number of items in the map.
+Retourne le nombre d'élément dans le `map`.
 
 ```js
 var myMap = map()
@@ -1654,22 +1652,23 @@ myMap.count() // 2
 Méthode: each
 ------------
 
-Calls a fonction for each key-value pair in the map. The returned value is
-the original map. If the passed fonction retourne `false` the loop stops.
+Appelle une fonction pour chaque paire clé-valeur contenues dans le `map`. La valeur 
+retournée est le `map` d'origine. Si la fonction passée retourne `false`, la boucle se 
+termine.
 
 ### Paramètres
 
-1. fn - (*fonction*) The fonction which should be executed on each item in the
-map. This fonction is passed the value and its key in the map.
+1. fn - (*fonction*) La fonction à executer sur chaque élément du `map`. Elle prend 
+la paire valeur-clé en argument.
 2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Paramètre: fn
 
 ##### Arguments
 
-1. value - (*mixed*) The current value in the map.
-2. key   - (*mixed*) The current value's key in the map.
-3. map   - (*map*) The actual map.
+1. value - (*mixed*) La valeur courante dans le  `map`.
+2. key   - (*mixed*) La valeur courante de la clé dans le `map`.
+3. map   - (*map*) Le `map` actuel.
 
 ### Échantillon
 
@@ -1680,9 +1679,9 @@ myMap.each(function(value, key){
     console.log(value)
     return key < 2
 })
-// logs 1, 2.
-// it doesn't log 3, because in the iteration of 2,
-// false is returned so the loop stopped.
+// Affiche 1, 2.
+// ça n'affiche pas 3 car on retourne `false` dans l'itération du 2.
+// la boucle est alors arrêtée.
 ```
 
 ### À voir aussi
@@ -1692,7 +1691,7 @@ myMap.each(function(value, key){
 Méthode: backwards
 -----------------
 
-Exactly like `map.each`, except that the loop is reversed.
+Exactement comme `map.each`, sauf que la boucle est inversée.
 
 ### Échantillon
 
@@ -1701,26 +1700,25 @@ var myMap = map()
 myMap.set(1, 1).set(2, 2).set(3, 3)
 myMap.backwards(function(value, key){
     console.log(value)
-}) // logs 3, 2, 1
+}) // affiche 3, 2, 1
 ```
 
 Méthode: map
 -----------
 
-Creates and retourne a new map with the results of calling a provided fonction on
-every value in the map.
+Crée et retourne un nouveau `map` avec les résultats de l'appel à la fonction 
+fournit pour chaque valeur du `map` passé en argument.
 
 ### Paramètres
 
-1. fn - (*fonction*) The fonction to produce a value of the new map from
-an value of the current one.
+1. fn - (*fonction*) La fonction appelée pour chaque élément du `map`
 2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
-#### Arguments paramètres de fn
+#### Paramètres de fn
 
-1. value - (*mixed*) The current value in the map.
-2. key   - (*mixed*) The current value's key in the map.
-3. map   - (*map*) The actual map.
+1. value - (*mixed*) La valeur courante du `map`.
+2. key   - (*mixed*) La clé de la valeur courante.
+3. map   - (*map*) Le `map` actuel.
 
 ### Échantillon
 
@@ -1729,26 +1727,25 @@ var myMap = map()
 myMap.set(1, 1).set(2, 2).set(3, 3)
 var timesTwo = myMap.map(function(value, key){
     return value * 2
-}) // timesTwo now holds a map where the values are multiplied by 2.
+}) // timesTwo contient maintenant un `map` dont les valeurs sont multipliées par 2.
 ```
 
 Méthode: filter
 --------------
 
-Creates and retourne a map with all of the elements of the map for
-which the provided filtering fonction retourne `true`.
+Crée et retourne un `map` avec tous les éléments dont le résultat de la fonction est `true`.
 
 ### Paramètres
 
-1. fn - (*fonction*) The fonction to test each element of the map. This
-fonction is passed the value and its key in the map.
+1. fn - (*fonction*) La fonction qui teste chaque élément du `map`. Cette fonction prend 
+la paire valeur-clé en argument.
 2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Arguments paramètres de fn
 
-1. value - (*mixed*) The current value in the map.
-2. key   - (*mixed*) The current value's key in the map.
-3. map   - (*map*) The actual map.
+1. value - (*mixed*) La valeur en cours dans le `map`.
+2. key   - (*mixed*) La valeur de la clé en cours dans le `map`.
+3. map   - (*map*) Le `map` actuel.
 
 ### Échantillon
 
@@ -1757,26 +1754,28 @@ var myMap = map()
 myMap.set(1, 10).set(2, 20).set(3, 30)
 var biggerThanTwenty = myMap.filter(function(value, key){
     return value > 20
-}) // biggerThanTwenty now holds a map with only the last value (30)
+}) // biggerThanTwenty contient maintenant un `map` avec seulement la dernière valeur (30).
 ```
 
 Méthode: every
 -------------
 
-retourne `true` if every value in the map satisfies the provided testing
-fonction, otherwise this méthode retourne `false`.
+Retourne `true` si la fonction valide chaque valeur du `map`. 
+Sinon elle retourne `false`.
 
 ### Paramètres
 
-1. fn - (*fonction*) The fonction to test each element of the map. This
-fonction is passed the value and its key in the map.
+1. fn - (*fonction*) 
+La fonction qui teste chaque élément du `map`.
+Cette fonction prend en argument la paire clé-valeur.
+
 2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
-#### Arguments paramètres de fn
+#### Paramètres de fn
 
-1. value - (*mixed*) The current value in the map.
-2. key   - (*mixed*) The current value's key in the map.
-3. map   - (*map*) The actual map.
+1. value - (*mixed*) La valeur en cours dans le `map`.
+2. key   - (*mixed*) La valeur de la clé en cours dans le `map`.
+3. map   - (*map*) Le `map` actuel.
 
 ### Échantillon
 
@@ -1790,20 +1789,20 @@ var areAllBigEnough = myMap.every(function(value, key){
 Méthode: some
 ------------
 
-retourne `true` if at least one value in the map satisfies the provided
-testing fonction, otherwise `false` is returned.
+Retourne `true` si la fonction valide au moins une des valeurs du `map`, sinon
+elle retourne `false`.
 
 ### Paramètres
 
-1. fn - (*fonction*) The fonction to test each element of the map. This
-fonction is passed the value and its key in the map.
+1. fn - (*fonction*) La fonction qui teste chaque élément du `map`. 
+Cette fonction prend en argument la paire clé-valeur.
 2. context - (*object*, optional) L'objet à utiliser 'tel que' dans la fonction.
 
 #### Arguments paramètres de fn
 
-1. value - (*mixed*) The current value in the map.
-2. key   - (*mixed*) The current value's key in the map.
-3. map   - (*map*) The actual map.
+1. value - (*mixed*) La valeur en cours dans le `map`.
+2. key   - (*mixed*) La valeur de la clé en cours dans le `map`.
+3. map   - (*map*) Le `map` actuel.
 
 ### Échantillon
 
@@ -1816,7 +1815,7 @@ var areAnyBigEnough = myMap.some(function(value, key){
 
 Méthode: index
 -------------
-
+TODO
 retourne the key which is associated with the first found value that is equal
 to the passed value. If no value found, `null` is returned.
 
